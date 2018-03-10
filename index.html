@@ -1,25 +1,59 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | test1</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>  
-    <script src="Build/UnityLoader.js"></script>
-    <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/test1Webgl.json", {onProgress: UnityProgress});
-    </script>
-  </head>
-  <body>
-    <div class="webgl-content">
-      <div id="gameContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
-        <div class="title">test1</div>
-      </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Unity WebGL Player | test1</title>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/UnityProgress.js"></script>
+  <script src="Build/UnityLoader.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+  <script>
+    var gameInstance = UnityLoader.instantiate("gameContainer", "Build/test1Webgl.json", {
+      onProgress: UnityProgress
+    });
+    var audio = $("#bgMusic");
+    $(document).ready(function() {
+      $(window).keydown(function(event) {
+        switch (event.keyCode) {
+          case 38:
+            alert("top");
+            break;
+          case 40:
+            alert("down");
+            break;
+          case 37:
+            alert("left");
+            break;
+          case 39:
+            alert("right");
+            break;
+          case 0X49:
+            audio.pause();
+            break;
+          case 0X50:
+            audio.play();
+            break;
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="webgl-content">
+    <div id="gameContainer" style="width: 960px; height: 600px"></div>
+    <div class="footer">
+      <div class="webgl-logo"></div>
+      <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+      <div class="title">test1</div>
     </div>
-  </body>
+  </div>
+  <audio id="bgMusic">
+    <source = src="audio/0308.wav" type="audio/wav">
+  </audio>
+</body>
+
 </html>
