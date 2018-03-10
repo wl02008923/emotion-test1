@@ -14,34 +14,12 @@
     var gameInstance = UnityLoader.instantiate("gameContainer", "Build/test1Webgl.json", {
       onProgress: UnityProgress
     });
-    var audio = document.getElementById("bgMusic");
-    $(window).keydown(function(event){
-      switch (event.which) {
-          case 38:
-            alert("top");
-            break;
-          case 40:
-            alert("down");
-            break;
-          case 37:
-            alert("left");
-            break;
-          case 39:
-            alert("right");
-            break;
-          case 90:
-            audio.pause();
-            break;
-          case 88:
-            audio.play();
-            break;
-        }
-      });
-    });
   </script>
 </head>
-
 <body>
+  <audio id="bgMusic">
+    <source = src="audio/0308.mp3" type="audio/mp3">
+  </audio>
   <div class="webgl-content">
     <div id="gameContainer" style="width: 960px; height: 600px"></div>
     <div class="footer">
@@ -50,9 +28,32 @@
       <div class="title">test1</div>
     </div>
   </div>
-  <audio id="bgMusic">
-    <source = src="audio/0308.wav" type="audio/wav">
-  </audio>
+  <script>
+  var audio = document.getElementById("bgMusic");
+  $(window).keydown(function(event){
+    switch (event.which) {
+        case 38:
+          alert("top");
+          break;
+        case 40:
+          alert("down");
+          break;
+        case 37:
+          alert("left");
+          break;
+        case 39:
+          alert("right");
+          break;
+        case 90:
+          audio.pause();
+          break;
+        case 88:
+          audio.play();
+          break;
+      }
+    });
+  });
+  </script>
 </body>
 
 </html>
