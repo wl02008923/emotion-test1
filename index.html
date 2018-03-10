@@ -14,10 +14,9 @@
     var gameInstance = UnityLoader.instantiate("gameContainer", "Build/test1Webgl.json", {
       onProgress: UnityProgress
     });
-    var audio = $("#bgMusic");
-    $(document).ready(function() {
-      $(window).keydown(function(event) {
-        switch (event.keyCode) {
+    var audio = document.getElementById("bgMusic");
+    $(window).keydown(function(event){
+      switch (event.which) {
           case 38:
             alert("top");
             break;
@@ -30,10 +29,10 @@
           case 39:
             alert("right");
             break;
-          case 0X49:
+          case 90:
             audio.pause();
             break;
-          case 0X50:
+          case 88:
             audio.play();
             break;
         }
